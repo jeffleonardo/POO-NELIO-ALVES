@@ -1,0 +1,13 @@
+package entities;
+
+public class Container {
+	
+	private String empresa;
+	private String numero;
+	private String missao;
+	private double peso;
+	
+	public Container() {
+		
+	}
+}

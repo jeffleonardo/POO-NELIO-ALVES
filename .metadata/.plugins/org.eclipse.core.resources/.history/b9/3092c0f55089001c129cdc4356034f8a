@@ -1,0 +1,9 @@
+package entities;
+
+public class Employee {
+	
+	private int id;
+	private String nome;
+	private double salario;
+
+}
