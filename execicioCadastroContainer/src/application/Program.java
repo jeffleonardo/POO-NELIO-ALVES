@@ -6,49 +6,56 @@ import java.util.Locale;
 import java.util.Scanner;
 
 import entities.Container;
+import entities.enums.Status;
 
 public class Program {
 
 	public static void main(String[] args) {
-		
+
 		Locale.setDefault(Locale.US);
 		Scanner sc = new Scanner(System.in);
 		List<Container> bl = new ArrayList<>();
-		
-		
-		System.out.println("Digite o nome número do BL");
+		Container cntr;
+		Status state = null;
+
+		System.out.print("Digite o número do BL");
 		String nameBl = sc.next();
-		System.out.println("Digite quantos conteineres vai ter neste BL");
+		System.out.print("Digite quantos conteineres vai ter neste BL");
 		int qntCntr = sc.nextInt();
-		
-		for(int i=0;i<qntCntr;i++) {
-			
+
+		for (int i = 0; i < qntCntr; i++) {
+
 			System.out.println();
-			System.out.println("Container #" + (i+1));
+			System.out.println("Container #" + (i + 1));
 			System.out.print("Digite o Nome da Empresa:");
 			sc.nextLine();
 			String empresa = sc.nextLine();
 			System.out.print("Digite o Número do Container com 4 letras e 7 números:");
 			String numero = sc.next();
-			System.out.print("Digite a missão do container: "
-					+ "0 Importação "
-					+ "1 Exportação");
+			System.out.print("Missão do container: " + "0 = Importação " + "1 = Exportação");
 			String missao = sc.next();
-			if(missao == "0") {
+			if (missao == "0") {
 				missao = "Importação";
-			}else {
+			} else {
 				missao = "Exportação";
 			}
-			System.out.print("Digite o peso do Container:");
+			System.out.print("Peso do Container:");
 			double peso = sc.nextDouble();
+			System.out.println("Status do Container " + "0 = VAZIO " + "1 = CHEIO");
+			int opcao = sc.nextInt();
 			
-			Container cntr = new Container(empresa, numero, missao, peso);
+			if (opcao == 0) {
+				state = Status.VAZIO;
+			} else if (opcao == 1) {
+				state = Status.CHEIO;				
+			}
+			
+			cntr = new Container(empresa, numero, missao, peso, state.mostarStatus(opcao));
 			bl.add(cntr);
 		}
-		
 		System.out.println();
-		System.out.println("Nome do BL: " + nameBl);
-		for(Container un : bl) {
+		System.out.println("Número do BL: " + nameBl);
+		for (Container un : bl) {
 			System.out.println();
 			System.out.println(un);
 		}

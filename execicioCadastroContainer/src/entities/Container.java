@@ -1,22 +1,27 @@
 package entities;
 
+
+import entities.enums.Status;
+
 public class Container {
 	
 	private String empresa;
 	private String numero;
 	private String missao;
 	private double peso;
+	private Status status;
 	
 	public Container() {
 		
 	}
 
-	public Container(String empresa, String numero, String missao, double peso) {
+	public Container(String empresa, String numero, String missao, double peso, Status status) {
 		super();
 		this.empresa = empresa;
 		this.numero = numero;
 		this.missao = missao;
 		this.peso = peso;
+		this.status = status;
 	}
 
 	public String getEmpresa() {
@@ -50,12 +55,20 @@ public class Container {
 	public void setPeso(double peso) {
 		this.peso = peso;
 	}
+	
+	public Status getStatus() {
+		return status;
+	}
+	public void setStatus(Status status) {
+		this.status = status;
+	}
 
 	@Override
 	public String toString() {
 		return "Empresa: " + empresa.toUpperCase() + "\n" +
 			   "Container: " + numero.toUpperCase()  + "\n" +
 			   "Missao: " + missao.toUpperCase()  + "\n" +
-			   "Tara: " + String.format("%.2f", peso);
+			   "Tara: " + String.format("%.2f", peso) + "\n" +
+			   "Status: " + status;
 	}
 }
