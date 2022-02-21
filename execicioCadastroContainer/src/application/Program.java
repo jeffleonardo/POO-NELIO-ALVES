@@ -6,7 +6,7 @@ import java.util.Locale;
 import java.util.Scanner;
 
 import entities.Container;
-import entities.enums.Status;
+import enuns.Status;
 
 public class Program {
 
