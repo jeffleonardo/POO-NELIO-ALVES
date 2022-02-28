@@ -3,11 +3,7 @@ package enuns;
 public enum Status {
 
 	VAZIO,
-	CHEIO;
-	
-	Status() {
-		
-	}	
+	CHEIO;	
 	
 	public Status mostarStatus(int opcao) {
 		if(opcao == 0) {
